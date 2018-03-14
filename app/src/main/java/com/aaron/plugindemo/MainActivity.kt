@@ -22,8 +22,11 @@ class MainActivity : AppCompatActivity() {
 
     private val requestPermission = android.Manifest.permission.WRITE_EXTERNAL_STORAGE
     private val permissionCode = 1001
+//    private val installedPackageName = "com.cvte.cheetah"
+//    private val picPluginInstallName = "icon_app"
     private val installedPackageName = "com.aaron.plugininstall"
     private val picPluginInstallName = "pic_plugin_installed"
+
     private val picPluginUnInstallName = "pic_plugin_no_install"
     private val uninstallApkPath = Environment.getExternalStorageDirectory().absolutePath + File.separator + "pluginUninstall.apk"
 
@@ -65,6 +68,8 @@ class MainActivity : AppCompatActivity() {
                     val resource = getUninstallPluginResource(uninstallApkPath)
                     val resId = loadUninstallPluginResourceId(uninstallApkPath)
                     Log.v("Aaron","load no install apk resource id = $resId ")
+                    textinfo.setTextColor(Color.BLACK)
+                    textinfo.setText("加载未安装插件中图片成功")
                     imageview.setImageDrawable( resource.getDrawable(resId))
                 } else {
                     textinfo.setText("未找到未安装的插件文件，请确认已经放入sdcard中")
@@ -89,6 +94,7 @@ class MainActivity : AppCompatActivity() {
         val pathClassLoader = PathClassLoader(context.packageResourcePath, ClassLoader.getSystemClassLoader())
 
         //通过使用自身的加载器反射出mipmap类进而使用该类的功能
+//        val clazz = pathClassLoader.loadClass("$installedPackageName.R\$drawable")
          val clazz = pathClassLoader.loadClass("$installedPackageName.R\$mipmap")
         //参数：1、类的全名，2、是否初始化类，3、加载时使用的类加载器
 //        val clazz = Class.forName("$installedPackageName.R\$mipmap", true, pathClassLoader)
@@ -149,7 +155,9 @@ class MainActivity : AppCompatActivity() {
             for((index,permission) in permissions.withIndex() ) {
                 if(permission == requestPermission) {
                     if (grantResults[index] == PackageManager.PERMISSION_GRANTED){
-
+                        textinfo.setText("已经获取到文件读取权限")
+                        textinfo.setTextColor(Color.BLUE)
+                        break
                     }
                 }
             }
