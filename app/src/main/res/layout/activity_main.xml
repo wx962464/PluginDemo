@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.aaron.plugindemo.MainActivity">
+
+    <TextView
+        android:id="@+id/textinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PluginDemo "
+        />
+
+    <Button
+        android:id="@+id/load_local_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="加载本地图片"
+        app:layout_constraintTop_toBottomOf="@id/textinfo"
+
+    />
+    <Button
+        android:id="@+id/load_installed_apk_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="加载已安装应用图片"
+        app:layout_constraintLeft_toRightOf="@id/load_local_image"
+        app:layout_constraintBottom_toBottomOf="@id/load_local_image"
+    />
+    <Button
+        android:id="@+id/load_no_install_apk_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="加载未安装应用图片"
+        app:layout_constraintLeft_toRightOf="@id/load_installed_apk_image"
+        app:layout_constraintBottom_toBottomOf="@id/load_local_image"
+    />
+    <ImageView
+        android:id="@+id/imageview"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintTop_toBottomOf="@id/load_local_image"
+    />
+
+</android.support.constraint.ConstraintLayout>
