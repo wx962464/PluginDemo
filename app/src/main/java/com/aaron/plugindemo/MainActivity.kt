@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
     private fun setListener() {
         load_local_image.setOnClickListener {
             Log.v("Aaron","load local image ")
-            imageview.setImageResource(R.mipmap.android)
+            imageview.setImageResource(R.mipmap.nature)
         }
         load_installed_apk_image.setOnClickListener {
             if(checkPackageInstalled()) {
