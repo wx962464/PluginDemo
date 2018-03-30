@@ -1,1 +1,1 @@
-include ':app', ':plugininstall', ':pluginnoinstall'
+include ':app', ':plugininstall', ':pluginnoinstall', ':pluginhookactivity'
